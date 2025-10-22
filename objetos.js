@@ -22,28 +22,26 @@
 // Crea un objeto llamado libro con las propiedades titulo, autor, y añoPublicacion. Añade un método llamado resumen que devuelva una cadena con un resumen del libro. Ejemplo de salida: "El libro 'Cien años de soledad' fue escrito por Gabriel García Márquez en 1967."
 
     const libro = {
-    titulo: "Cien años de soledad",
-    autor: "Gabriel García Márquez",
-    anioPublicacion: 1967, 
+        titulo: "Cien años de soledad",
+        autor: "Gabriel García Márquez",
+        anioPublicacion: 1967, 
 
-    resumen: () => { return `El libro '${libro.titulo}' fue escrito por ${libro.autor} en ${libro.anioPublicacion}`}
+        resumen: () => { return `El libro '${libro.titulo}' fue escrito por ${libro.autor} en ${libro.anioPublicacion}`}
 };
-
     console.log(libro.resumen());
 
 // 4. Array de objetos
 // Crea un array llamado estudiantes que contenga tres objetos. Cada objeto debe representar un estudiante con las propiedades: nombre, edad, y notaFinal. Luego, recorre el array e imprime el nombre y la nota final de cada estudiante.
 
     const estudiantes = [
-    { nombre: "alba", edad: 27, notaFinal: 8.5 },
-    { nombre: "hana", edad: 32, notaFinal: 9.5 },
-    { nombre: "esther", edad: 25, notaFinal: 7.5 }
-    ];
+        { nombre: "alba", edad: 27, notaFinal: 8.5 },
+        { nombre: "hana", edad: 32, notaFinal: 9.5 },
+        { nombre: "esther", edad: 25, notaFinal: 7.5 }
+        ];
 
     estudiantes.forEach(estudiante => {
     console.log(`Nombre: ${estudiante.nombre}, Nota Final: ${estudiante.notaFinal}`);
     });
-
 
 // 5. Método para calcular la edad
 // Crea un objeto persona con las propiedades nombre, anioNacimiento, y un método llamado calcularEdad que devuelva la edad actual de la persona basado en el año de nacimiento.
@@ -66,23 +64,60 @@
         anio:   2010,
         velocidadActual:0,
 
-        Acelerar: () => Coche.velocidadActual += 10        
-        Frenar: function() {Coche.velocidadActual -= 10;
-        }
-
+        Acelerar: () => Coche.velocidadActual += 10,     
+        Frenar: ()  => Coche.velocidadActual = Math.max(0, Coche.velocidadActual - 10)
     }
+
+        Coche.Acelerar();
+        Coche.Frenar();
+        console.log(`Velocidad actual: ${Coche.velocidadActual} km/h`);
 
 // 7. Recorrer un objeto
 // Crea un objeto producto con las propiedades nombre, precio, cantidad. Usa un ciclo for...in para imprimir todas las propiedades y sus valores.
 
+    const producto = {
+        nombre: "Camiseta",
+        precio: 19.99,
+        cantidad: 5
+        };
 
-
+        for (let propiedad in producto) {
+        console.log(`${propiedad}: ${producto[propiedad]}`);
+        }
 
 // 8. Contar propiedades
 // Crea un objeto animal con al menos cinco propiedades. Luego, escribe una función que cuente y devuelva el número de propiedades que tiene el objeto.
+    const animal = {
+        especie: "gato",
+        nombre: "garfield",
+        color: "naranja",
+        edad: 2,
+        peso: 3,
+        peso: true
+        };
+
+        function contarPropiedades(obj) {
+        return Object.keys(obj).length;
+        }
+
+        console.log(`Número de propiedades: ${contarPropiedades(animal)}`);
 
 // 9. Objeto dentro de otro objeto
 // Crea un objeto empresa que tenga las propiedades nombre y direccion. La propiedad direccion debe ser otro objeto con calle, ciudad, y codigoPostal. Luego, accede a las propiedades del objeto anidado e imprímelas.
+
+    const empresa = {
+        nombre: "Tech Solutions",
+        direccion: {
+            calle: "Calle dato 26",
+            ciudad: "Vitoria",
+            codigoPostal: "01001"
+        }
+        };
+
+        console.log(`Calle: ${empresa.direccion.calle}`);
+        console.log(`Ciudad: ${empresa.direccion.ciudad}`);
+        console.log(`Código Postal: ${empresa.direccion.codigoPostal}`);
+
 
 // 10. Añadir métodos a objetos
 // Crea un objeto cuentaBancaria con las propiedades titular, saldo. Añade métodos depositar y retirar que modifiquen el saldo según sea necesario. El método retirar debe asegurarse de que no se pueda retirar más dinero del que hay disponible.
